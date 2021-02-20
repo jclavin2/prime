@@ -1,0 +1,36 @@
+Version 1.3 - December 23, 2020
+    * Added machine learning based Intruction Detection System ( refer its README in folder ids).
+    * Updated to be compatible with modified APIs of  OpenSSL version 1.1.0 (spines and prime changes in their respective CHANGELOGs). 
+    * Updated build system(s) and code to work with CentOS-8 (gcc and g++ 8.3.1). 
+    * Updated OpenPLC to version that contains Opendnp3, and updated Makefile
+      for dnp3_master accordingly.
+    * Explored system tunining to optimize for minimal latency in single site configuration. Included such configuration example_conf to work in substation/LAN context. 
+    * Uses Spines 5.5
+    * Uses Prime 3.3
+Version 1.2 - November 26, 2018
+    * Updated to use Spines 5.4, which fixed a bug that could be triggered when
+      link encryption is used in Spire
+
+Version 1.1 - March 14, 2018
+    * Added capability to automatically reset the system if the system
+      assumptions are violated (specifically, if there are no longer enough
+      correct replicas with the system state to re-integrate recovering
+      replicas) based on a signal from Prime
+    * Added new HMIs representing the 3-breaker, 5-breaker, and timing
+      measurement systems demonstrated at the Hawaiian Electric Company in
+      January/February 2018, as well as a new Energy Management System (EMS)
+      HMI
+    * Added additional example configurations and scripts to switch between
+      configurations
+        - Changed default configuration to use 6 replicas (simultaneously
+          supporting one compromise and one proactive recovery) instead of 4
+          (supporting one compromise or recovery at a time)
+    * Some improvements to message validation
+    * Updated to use Prime 3.1 (see Prime Changelog)
+    * Updated to use Spines 5.3 (see Spines Changelog)
+    * Included versions of pvbrowser, opendnp3, and OpenPLC tested to work
+      with Spire as part of the Spire release package
+    * Updated Makefile to compile the emulated PLCs for our example systems
+
+Version 1.0 - May 17, 2017
+    * Initial release.

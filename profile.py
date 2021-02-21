@@ -23,7 +23,7 @@ ifaces = []
 # Nodes at Site One.
 for i in range(1,13,4): #replicas 1, 5, 9
     node = request.RawPC("node" + str(counter))
-    node.disk_image = disk_image;
+    node.disk_image = disk_image
     # Assign to Site One.
     node.Site("Site1")
     # Create iface and assign IP
@@ -37,6 +37,7 @@ for i in range(1,13,4): #replicas 1, 5, 9
  # Nodes at Site Two
 for i in range(2, 14, 4): #replicas 2, 6, 10
     node = request.RawPC("node" + str(counter))
+    node.disk_image = disk_image
     # Assign to Site Two
     node.Site("Site2")
     # Create iface and assign IP
@@ -51,6 +52,7 @@ for i in range(2, 14, 4): #replicas 2, 6, 10
  # Nodes at Site Three
 for i in range(3, 15, 4): #replicas 3, 7, 11
     node = request.RawPC("node" + str(counter))
+    node.disk_image = disk_image
     # Assign to Site Two
     node.Site("Site3")
     # Create iface and assign IP
@@ -65,6 +67,7 @@ for i in range(3, 15, 4): #replicas 3, 7, 11
  # Nodes at Site Four
 for i in range(4, 16, 4): #replicas 4, 8, 12
     node = request.RawPC("node" + str(counter))
+    node.disk_image = disk_image
     # Assign to Site Two
     node.Site("Site4")
     # Create iface and assign IP

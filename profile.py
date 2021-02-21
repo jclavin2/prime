@@ -66,7 +66,7 @@ for i in range(3, 15, 4): #replicas 3, 7, 11
 for i in range(4, 16, 4): #replicas 4, 8, 12
     node = request.RawPC("node" + str(counter))
     # Assign to Site Two
-    node.Site("Site3")
+    node.Site("Site4")
     # Create iface and assign IP
     iface = node.addInterface("eth1")
     # Specify the IPv4 address

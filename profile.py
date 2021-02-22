@@ -6,7 +6,8 @@ import geni.rspec.pg as pg
 # Create a portal context.
 pc = portal.Context()
 
-disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS8-64-STD";
+#disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS8-64-STD"; #centos 8.
+disk_image = "urn:publicid:IDN+emulab.net+image+ByzantineGridSec:Prime6.node0" #centos 8 with prime
 
 
 # Create a Request object to start building the RSpec.

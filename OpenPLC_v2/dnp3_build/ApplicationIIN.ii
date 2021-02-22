@@ -1,0 +1,562 @@
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/opendnp3/outstation/ApplicationIIN.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/opendnp3/outstation/ApplicationIIN.cpp"
+# 21 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/opendnp3/outstation/ApplicationIIN.cpp"
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/opendnp3/outstation/ApplicationIIN.h" 1
+# 24 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/opendnp3/outstation/ApplicationIIN.h"
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/executor/UTCTimestamp.h" 1
+# 24 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/executor/UTCTimestamp.h"
+# 1 "/usr/include/c++/9/cstdint" 1 3
+# 32 "/usr/include/c++/9/cstdint" 3
+       
+# 33 "/usr/include/c++/9/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 1 3
+# 252 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 3
+
+# 252 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 3
+namespace std
+{
+  typedef long unsigned int size_t;
+  typedef long int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 274 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 524 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 3
+# 1 "/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h" 1 3
+# 39 "/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 461 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
+# 452 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 453 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/long-double.h" 1 3 4
+# 454 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 462 "/usr/include/features.h" 2 3 4
+# 485 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h" 1 3 4
+# 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4
+# 486 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h" 2 3
+# 525 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h" 1 3
+# 528 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/9/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types.h" 1 3 4
+# 27 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/timesize.h" 1 3 4
+# 29 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+
+
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+
+
+
+
+
+
+typedef __int8_t __int_least8_t;
+typedef __uint8_t __uint_least8_t;
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+typedef __int64_t __int_least64_t;
+typedef __uint64_t __uint_least64_t;
+
+
+
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+
+
+
+
+
+
+
+typedef long int __intmax_t;
+typedef unsigned long int __uintmax_t;
+# 141 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/typesizes.h" 1 3 4
+# 142 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/time64.h" 1 3 4
+# 143 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+
+typedef int __daddr_t;
+typedef int __key_t;
+
+
+typedef int __clockid_t;
+
+
+typedef void * __timer_t;
+
+
+typedef long int __blksize_t;
+
+
+
+
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+
+
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+
+
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+
+
+typedef long int __fsword_t;
+
+typedef long int __ssize_t;
+
+
+typedef long int __syscall_slong_t;
+
+typedef unsigned long int __syscall_ulong_t;
+
+
+
+typedef __off64_t __loff_t;
+typedef char *__caddr_t;
+
+
+typedef long int __intptr_t;
+
+
+typedef unsigned int __socklen_t;
+
+
+
+
+typedef int __sig_atomic_t;
+# 28 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wchar.h" 1 3 4
+# 29 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 30 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 3 4
+typedef __int8_t int8_t;
+typedef __int16_t int16_t;
+typedef __int32_t int32_t;
+typedef __int64_t int64_t;
+# 35 "/usr/include/stdint.h" 2 3 4
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 3 4
+typedef __uint8_t uint8_t;
+typedef __uint16_t uint16_t;
+typedef __uint32_t uint32_t;
+typedef __uint64_t uint64_t;
+# 38 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+
+typedef __int_least8_t int_least8_t;
+typedef __int_least16_t int_least16_t;
+typedef __int_least32_t int_least32_t;
+typedef __int_least64_t int_least64_t;
+
+
+typedef __uint_least8_t uint_least8_t;
+typedef __uint_least16_t uint_least16_t;
+typedef __uint_least32_t uint_least32_t;
+typedef __uint_least64_t uint_least64_t;
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+typedef long int int_fast16_t;
+typedef long int int_fast32_t;
+typedef long int int_fast64_t;
+# 71 "/usr/include/stdint.h" 3 4
+typedef unsigned char uint_fast8_t;
+
+typedef unsigned long int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+typedef unsigned long int uint_fast64_t;
+# 87 "/usr/include/stdint.h" 3 4
+typedef long int intptr_t;
+
+
+typedef unsigned long int uintptr_t;
+# 101 "/usr/include/stdint.h" 3 4
+typedef __intmax_t intmax_t;
+typedef __uintmax_t uintmax_t;
+# 10 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/9/cstdint" 2 3
+
+
+namespace std
+{
+
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+
+
+
+
+
+}
+# 25 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/executor/UTCTimestamp.h" 2
+
+
+# 26 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/executor/UTCTimestamp.h"
+namespace openpal
+{
+
+
+
+
+class UTCTimestamp
+{
+
+public:
+
+ UTCTimestamp() = default;
+
+ UTCTimestamp(uint64_t msSinceEpoch) : msSinceEpoch(msSinceEpoch)
+ {}
+
+ uint64_t msSinceEpoch = 0;
+
+};
+
+}
+# 25 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/opendnp3/outstation/ApplicationIIN.h" 2
+
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/opendnp3/app/IINField.h" 1
+# 26 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/opendnp3/app/IINField.h"
+namespace opendnp3
+{
+
+enum class IINBit
+{
+ ALL_STATIONS = 0,
+ CLASS1_EVENTS,
+ CLASS2_EVENTS,
+ CLASS3_EVENTS,
+ NEED_TIME,
+ LOCAL_CONTROL,
+ DEVICE_TROUBLE,
+ DEVICE_RESTART,
+ FUNC_NOT_SUPPORTED,
+ OBJECT_UNKNOWN,
+ PARAM_ERROR,
+ EVENT_BUFFER_OVERFLOW,
+ ALREADY_EXECUTING,
+ CONFIG_CORRUPT,
+ RESERVED1,
+ RESERVED2 = 15
+};
+
+
+
+class IINField
+{
+
+private:
+
+ enum class LSBMask : uint8_t
+ {
+  ALL_STATIONS = 0x01,
+  CLASS1_EVENTS = 0x02,
+  CLASS2_EVENTS = 0x04,
+  CLASS3_EVENTS = 0x08,
+  NEED_TIME = 0x10,
+  LOCAL_CONTROL = 0x20,
+  DEVICE_TROUBLE = 0x40,
+  DEVICE_RESTART = 0x80,
+ };
+
+ enum class MSBMask : uint8_t
+ {
+  FUNC_NOT_SUPPORTED = 0x01,
+  OBJECT_UNKNOWN = 0x02,
+  PARAM_ERROR = 0x04,
+  EVENT_BUFFER_OVERFLOW = 0x08,
+  ALREADY_EXECUTING = 0x10,
+  CONFIG_CORRUPT = 0x20,
+  RESERVED1 = 0x40,
+  RESERVED2 = 0x80,
+
+
+  REQUEST_ERROR_MASK = FUNC_NOT_SUPPORTED | OBJECT_UNKNOWN | PARAM_ERROR
+ };
+
+
+public:
+
+ static IINField Empty()
+ {
+  return IINField(0, 0);
+ }
+
+ IINField(IINBit bit) : LSB(0), MSB(0)
+ {
+  this->SetBit(bit);
+ }
+
+ IINField(uint8_t aLSB, uint8_t aMSB) : LSB(aLSB), MSB(aMSB)
+ {}
+
+ IINField() : LSB(0), MSB(0)
+ {}
+
+ bool IsSet(IINBit bit) const;
+
+ bool IsClear(IINBit bit) const
+ {
+  return !IsSet(bit);
+ }
+
+ void SetBit(IINBit bit);
+ void ClearBit(IINBit bit);
+
+ void SetBitToValue(IINBit bit, bool value);
+
+ bool operator==(const IINField& arRHS) const;
+
+ bool Any() const
+ {
+  return (LSB | MSB) != 0;
+ }
+
+ void Clear()
+ {
+  LSB = MSB = 0;
+ }
+
+ bool HasRequestError() const
+ {
+  return Get(MSBMask::REQUEST_ERROR_MASK);
+ }
+
+ IINField operator|(const IINField& aIIN) const
+ {
+  return IINField(LSB | aIIN.LSB, MSB | aIIN.MSB);
+ }
+
+ IINField& operator|=(const IINField& aIIN)
+ {
+  MSB |= aIIN.MSB;
+  LSB |= aIIN.LSB;
+  return *this;
+ }
+
+ IINField operator&(const IINField& aIIN) const
+ {
+  return IINField(LSB & aIIN.LSB, MSB & aIIN.MSB);
+ }
+
+ IINField& operator&=(const IINField& aIIN)
+ {
+  MSB &= aIIN.MSB;
+  LSB &= aIIN.LSB;
+  return *this;
+ }
+
+ IINField operator~() const
+ {
+  return IINField(~LSB, ~MSB);
+ }
+
+ uint8_t LSB;
+ uint8_t MSB;
+
+private:
+
+ static const uint8_t REQUEST_ERROR_MASK;
+
+ inline bool Get(LSBMask bit) const
+ {
+  return (LSB & static_cast<uint8_t>(bit)) != 0;
+ }
+
+ inline bool Get(MSBMask bit) const
+ {
+  return (MSB & static_cast<uint8_t>(bit)) != 0;
+ }
+
+ inline void Set(LSBMask bit)
+ {
+  LSB |= static_cast<uint8_t>(bit);
+ }
+ inline void Set(MSBMask bit)
+ {
+  MSB |= static_cast<uint8_t>(bit);
+ }
+
+ inline void Clear(LSBMask bit)
+ {
+  LSB &= ~static_cast<uint8_t>(bit);
+ }
+ inline void Clear(MSBMask bit)
+ {
+  MSB &= ~static_cast<uint8_t>(bit);
+ }
+};
+
+}
+# 27 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/opendnp3/outstation/ApplicationIIN.h" 2
+
+namespace opendnp3
+{
+
+
+
+
+
+
+class ApplicationIIN
+{
+
+public:
+
+ ApplicationIIN();
+
+ bool needTime;
+ bool localControl;
+ bool deviceTrouble;
+ bool configCorrupt;
+
+ IINField ToIIN() const;
+
+};
+
+
+}
+# 22 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/opendnp3/outstation/ApplicationIIN.cpp" 2
+
+namespace opendnp3
+{
+
+ApplicationIIN::ApplicationIIN() : needTime(false), localControl(false), deviceTrouble(false), configCorrupt(false)
+{}
+
+IINField ApplicationIIN::ToIIN() const
+{
+ IINField ret;
+ ret.SetBitToValue(IINBit::NEED_TIME, needTime);
+ ret.SetBitToValue(IINBit::LOCAL_CONTROL, localControl);
+ ret.SetBitToValue(IINBit::CONFIG_CORRUPT, configCorrupt);
+ ret.SetBitToValue(IINBit::DEVICE_TROUBLE, deviceTrouble);
+ return ret;
+}
+
+}

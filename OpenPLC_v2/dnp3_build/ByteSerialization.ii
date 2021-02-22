@@ -1,0 +1,1183 @@
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/openpal/serialization/ByteSerialization.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/openpal/serialization/ByteSerialization.cpp"
+# 21 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/openpal/serialization/ByteSerialization.cpp"
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/serialization/ByteSerialization.h" 1
+# 24 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/serialization/ByteSerialization.h"
+# 1 "/usr/include/c++/9/cstdint" 1 3
+# 32 "/usr/include/c++/9/cstdint" 3
+       
+# 33 "/usr/include/c++/9/cstdint" 3
+
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 1 3
+# 252 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 3
+
+# 252 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 3
+namespace std
+{
+  typedef long unsigned int size_t;
+  typedef long int ptrdiff_t;
+
+
+  typedef decltype(nullptr) nullptr_t;
+
+}
+# 274 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 3
+namespace std
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+namespace __gnu_cxx
+{
+  inline namespace __cxx11 __attribute__((__abi_tag__ ("cxx11"))) { }
+}
+# 524 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 3
+# 1 "/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h" 1 3
+# 39 "/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h" 3
+# 1 "/usr/include/features.h" 1 3 4
+# 461 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
+# 452 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 453 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/long-double.h" 1 3 4
+# 454 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 462 "/usr/include/features.h" 2 3 4
+# 485 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h" 1 3 4
+# 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4
+# 486 "/usr/include/features.h" 2 3 4
+# 40 "/usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h" 2 3
+# 525 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 2 3
+
+
+# 1 "/usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h" 1 3
+# 528 "/usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h" 2 3
+# 39 "/usr/include/c++/9/cstdint" 2 3
+
+
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types.h" 1 3 4
+# 27 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/timesize.h" 1 3 4
+# 29 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+
+
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+
+
+
+
+
+
+typedef __int8_t __int_least8_t;
+typedef __uint8_t __uint_least8_t;
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+typedef __int64_t __int_least64_t;
+typedef __uint64_t __uint_least64_t;
+
+
+
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+
+
+
+
+
+
+
+typedef long int __intmax_t;
+typedef unsigned long int __uintmax_t;
+# 141 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/typesizes.h" 1 3 4
+# 142 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/time64.h" 1 3 4
+# 143 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+
+typedef int __daddr_t;
+typedef int __key_t;
+
+
+typedef int __clockid_t;
+
+
+typedef void * __timer_t;
+
+
+typedef long int __blksize_t;
+
+
+
+
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+
+
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+
+
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+
+
+typedef long int __fsword_t;
+
+typedef long int __ssize_t;
+
+
+typedef long int __syscall_slong_t;
+
+typedef unsigned long int __syscall_ulong_t;
+
+
+
+typedef __off64_t __loff_t;
+typedef char *__caddr_t;
+
+
+typedef long int __intptr_t;
+
+
+typedef unsigned int __socklen_t;
+
+
+
+
+typedef int __sig_atomic_t;
+# 28 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wchar.h" 1 3 4
+# 29 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 30 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 3 4
+typedef __int8_t int8_t;
+typedef __int16_t int16_t;
+typedef __int32_t int32_t;
+typedef __int64_t int64_t;
+# 35 "/usr/include/stdint.h" 2 3 4
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 3 4
+typedef __uint8_t uint8_t;
+typedef __uint16_t uint16_t;
+typedef __uint32_t uint32_t;
+typedef __uint64_t uint64_t;
+# 38 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+
+typedef __int_least8_t int_least8_t;
+typedef __int_least16_t int_least16_t;
+typedef __int_least32_t int_least32_t;
+typedef __int_least64_t int_least64_t;
+
+
+typedef __uint_least8_t uint_least8_t;
+typedef __uint_least16_t uint_least16_t;
+typedef __uint_least32_t uint_least32_t;
+typedef __uint_least64_t uint_least64_t;
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+typedef long int int_fast16_t;
+typedef long int int_fast32_t;
+typedef long int int_fast64_t;
+# 71 "/usr/include/stdint.h" 3 4
+typedef unsigned char uint_fast8_t;
+
+typedef unsigned long int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+typedef unsigned long int uint_fast64_t;
+# 87 "/usr/include/stdint.h" 3 4
+typedef long int intptr_t;
+
+
+typedef unsigned long int uintptr_t;
+# 101 "/usr/include/stdint.h" 3 4
+typedef __intmax_t intmax_t;
+typedef __uintmax_t uintmax_t;
+# 10 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h" 2 3 4
+# 42 "/usr/include/c++/9/cstdint" 2 3
+
+
+namespace std
+{
+
+  using ::int8_t;
+  using ::int16_t;
+  using ::int32_t;
+  using ::int64_t;
+
+  using ::int_fast8_t;
+  using ::int_fast16_t;
+  using ::int_fast32_t;
+  using ::int_fast64_t;
+
+  using ::int_least8_t;
+  using ::int_least16_t;
+  using ::int_least32_t;
+  using ::int_least64_t;
+
+  using ::intmax_t;
+  using ::intptr_t;
+
+  using ::uint8_t;
+  using ::uint16_t;
+  using ::uint32_t;
+  using ::uint64_t;
+
+  using ::uint_fast8_t;
+  using ::uint_fast16_t;
+  using ::uint_fast32_t;
+  using ::uint_fast64_t;
+
+  using ::uint_least8_t;
+  using ::uint_least16_t;
+  using ::uint_least32_t;
+  using ::uint_least64_t;
+
+  using ::uintmax_t;
+  using ::uintptr_t;
+
+
+
+
+
+}
+# 25 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/serialization/ByteSerialization.h" 2
+# 1 "/usr/include/c++/9/cstring" 1 3
+# 39 "/usr/include/c++/9/cstring" 3
+       
+# 40 "/usr/include/c++/9/cstring" 3
+
+
+# 1 "/usr/include/string.h" 1 3 4
+# 26 "/usr/include/string.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 27 "/usr/include/string.h" 2 3 4
+
+extern "C" {
+
+
+
+
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h" 1 3 4
+# 209 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h" 3 4
+typedef long unsigned int size_t;
+# 34 "/usr/include/string.h" 2 3 4
+# 43 "/usr/include/string.h" 3 4
+extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+       size_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern void *memmove (void *__dest, const void *__src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
+        int __c, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern void *memset (void *__s, int __c, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int memcmp (const void *__s1, const void *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern "C++"
+{
+extern void *memchr (void *__s, int __c, size_t __n)
+      throw () __asm ("memchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const void *memchr (const void *__s, int __c, size_t __n)
+      throw () __asm ("memchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) void *
+memchr (void *__s, int __c, size_t __n) throw ()
+{
+  return __builtin_memchr (__s, __c, __n);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const void *
+memchr (const void *__s, int __c, size_t __n) throw ()
+{
+  return __builtin_memchr (__s, __c, __n);
+}
+
+}
+# 99 "/usr/include/string.h" 3 4
+extern "C++" void *rawmemchr (void *__s, int __c)
+     throw () __asm ("rawmemchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern "C++" const void *rawmemchr (const void *__s, int __c)
+     throw () __asm ("rawmemchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+extern "C++" void *memrchr (void *__s, int __c, size_t __n)
+      throw () __asm ("memrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern "C++" const void *memrchr (const void *__s, int __c, size_t __n)
+      throw () __asm ("memrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+# 122 "/usr/include/string.h" 3 4
+extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+extern char *strncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern char *strcat (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+extern char *strncat (char *__restrict __dest, const char *__restrict __src,
+        size_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strcmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strcoll (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern size_t strxfrm (char *__restrict __dest,
+         const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/locale_t.h" 1 3 4
+# 22 "/usr/include/x86_64-linux-gnu/bits/types/locale_t.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h" 1 3 4
+# 28 "/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h" 3 4
+struct __locale_struct
+{
+
+  struct __locale_data *__locales[13];
+
+
+  const unsigned short int *__ctype_b;
+  const int *__ctype_tolower;
+  const int *__ctype_toupper;
+
+
+  const char *__names[13];
+};
+
+typedef struct __locale_struct *__locale_t;
+# 23 "/usr/include/x86_64-linux-gnu/bits/types/locale_t.h" 2 3 4
+
+typedef __locale_t locale_t;
+# 154 "/usr/include/string.h" 2 3 4
+
+
+extern int strcoll_l (const char *__s1, const char *__s2, locale_t __l)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
+
+
+extern size_t strxfrm_l (char *__dest, const char *__src, size_t __n,
+    locale_t __l) throw () __attribute__ ((__nonnull__ (2, 4)));
+
+
+
+
+
+extern char *strdup (const char *__s)
+     throw () __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+extern char *strndup (const char *__string, size_t __n)
+     throw () __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
+# 204 "/usr/include/string.h" 3 4
+extern "C++"
+{
+extern char *strchr (char *__s, int __c)
+     throw () __asm ("strchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *strchr (const char *__s, int __c)
+     throw () __asm ("strchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strchr (char *__s, int __c) throw ()
+{
+  return __builtin_strchr (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strchr (const char *__s, int __c) throw ()
+{
+  return __builtin_strchr (__s, __c);
+}
+
+}
+
+
+
+
+
+
+extern "C++"
+{
+extern char *strrchr (char *__s, int __c)
+     throw () __asm ("strrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *strrchr (const char *__s, int __c)
+     throw () __asm ("strrchr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strrchr (char *__s, int __c) throw ()
+{
+  return __builtin_strrchr (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strrchr (const char *__s, int __c) throw ()
+{
+  return __builtin_strrchr (__s, __c);
+}
+
+}
+# 261 "/usr/include/string.h" 3 4
+extern "C++" char *strchrnul (char *__s, int __c)
+     throw () __asm ("strchrnul") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern "C++" const char *strchrnul (const char *__s, int __c)
+     throw () __asm ("strchrnul") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+# 273 "/usr/include/string.h" 3 4
+extern size_t strcspn (const char *__s, const char *__reject)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern size_t strspn (const char *__s, const char *__accept)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern "C++"
+{
+extern char *strpbrk (char *__s, const char *__accept)
+     throw () __asm ("strpbrk") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern const char *strpbrk (const char *__s, const char *__accept)
+     throw () __asm ("strpbrk") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strpbrk (char *__s, const char *__accept) throw ()
+{
+  return __builtin_strpbrk (__s, __accept);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strpbrk (const char *__s, const char *__accept) throw ()
+{
+  return __builtin_strpbrk (__s, __accept);
+}
+
+}
+
+
+
+
+
+
+extern "C++"
+{
+extern char *strstr (char *__haystack, const char *__needle)
+     throw () __asm ("strstr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern const char *strstr (const char *__haystack, const char *__needle)
+     throw () __asm ("strstr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+strstr (char *__haystack, const char *__needle) throw ()
+{
+  return __builtin_strstr (__haystack, __needle);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+strstr (const char *__haystack, const char *__needle) throw ()
+{
+  return __builtin_strstr (__haystack, __needle);
+}
+
+}
+
+
+
+
+
+
+
+extern char *strtok (char *__restrict __s, const char *__restrict __delim)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+extern char *__strtok_r (char *__restrict __s,
+    const char *__restrict __delim,
+    char **__restrict __save_ptr)
+     throw () __attribute__ ((__nonnull__ (2, 3)));
+
+extern char *strtok_r (char *__restrict __s, const char *__restrict __delim,
+         char **__restrict __save_ptr)
+     throw () __attribute__ ((__nonnull__ (2, 3)));
+
+
+
+
+
+extern "C++" char *strcasestr (char *__haystack, const char *__needle)
+     throw () __asm ("strcasestr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern "C++" const char *strcasestr (const char *__haystack,
+         const char *__needle)
+     throw () __asm ("strcasestr") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+# 369 "/usr/include/string.h" 3 4
+extern void *memmem (const void *__haystack, size_t __haystacklen,
+       const void *__needle, size_t __needlelen)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 3)));
+
+
+
+extern void *__mempcpy (void *__restrict __dest,
+   const void *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern void *mempcpy (void *__restrict __dest,
+        const void *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern size_t strlen (const char *__s)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+extern size_t strnlen (const char *__string, size_t __maxlen)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+extern char *strerror (int __errnum) throw ();
+# 421 "/usr/include/string.h" 3 4
+extern char *strerror_r (int __errnum, char *__buf, size_t __buflen)
+     throw () __attribute__ ((__nonnull__ (2))) __attribute__ ((__warn_unused_result__));
+
+
+
+
+
+extern char *strerror_l (int __errnum, locale_t __l) throw ();
+
+
+
+# 1 "/usr/include/strings.h" 1 3 4
+# 23 "/usr/include/strings.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h" 1 3 4
+# 24 "/usr/include/strings.h" 2 3 4
+
+
+
+
+
+
+extern "C" {
+
+
+
+extern int bcmp (const void *__s1, const void *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern void bcopy (const void *__src, void *__dest, size_t __n)
+  throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern void bzero (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern "C++"
+{
+extern char *index (char *__s, int __c)
+     throw () __asm ("index") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *index (const char *__s, int __c)
+     throw () __asm ("index") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+index (char *__s, int __c) throw ()
+{
+  return __builtin_index (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+index (const char *__s, int __c) throw ()
+{
+  return __builtin_index (__s, __c);
+}
+
+}
+
+
+
+
+
+
+
+extern "C++"
+{
+extern char *rindex (char *__s, int __c)
+     throw () __asm ("rindex") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+extern const char *rindex (const char *__s, int __c)
+     throw () __asm ("rindex") __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) char *
+rindex (char *__s, int __c) throw ()
+{
+  return __builtin_rindex (__s, __c);
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) const char *
+rindex (const char *__s, int __c) throw ()
+{
+  return __builtin_rindex (__s, __c);
+}
+
+}
+# 104 "/usr/include/strings.h" 3 4
+extern int ffs (int __i) throw () __attribute__ ((__const__));
+
+
+
+
+
+extern int ffsl (long int __l) throw () __attribute__ ((__const__));
+__extension__ extern int ffsll (long long int __ll)
+     throw () __attribute__ ((__const__));
+
+
+
+extern int strcasecmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strncasecmp (const char *__s1, const char *__s2, size_t __n)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+
+extern int strcasecmp_l (const char *__s1, const char *__s2, locale_t __loc)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
+
+
+
+extern int strncasecmp_l (const char *__s1, const char *__s2,
+     size_t __n, locale_t __loc)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 4)));
+
+
+}
+
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/strings_fortified.h" 1 3 4
+# 22 "/usr/include/x86_64-linux-gnu/bits/strings_fortified.h" 3 4
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void
+__attribute__ ((__leaf__)) bcopy (const void *__src, void *__dest, size_t __len) throw ()
+{
+  (void) __builtin___memmove_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void
+__attribute__ ((__leaf__)) bzero (void *__dest, size_t __len) throw ()
+{
+  (void) __builtin___memset_chk (__dest, '\0', __len, __builtin_object_size (__dest, 0));
+}
+# 145 "/usr/include/strings.h" 2 3 4
+# 433 "/usr/include/string.h" 2 3 4
+
+
+
+extern void explicit_bzero (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern char *strsep (char **__restrict __stringp,
+       const char *__restrict __delim)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern char *strsignal (int __sig) throw ();
+
+
+extern char *__stpcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpcpy (char *__restrict __dest, const char *__restrict __src)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern char *__stpncpy (char *__restrict __dest,
+   const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+extern char *stpncpy (char *__restrict __dest,
+        const char *__restrict __src, size_t __n)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern int strverscmp (const char *__s1, const char *__s2)
+     throw () __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern char *strfry (char *__string) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern void *memfrob (void *__s, size_t __n) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+extern "C++" char *basename (char *__filename)
+     throw () __asm ("basename") __attribute__ ((__nonnull__ (1)));
+extern "C++" const char *basename (const char *__filename)
+     throw () __asm ("basename") __attribute__ ((__nonnull__ (1)));
+# 495 "/usr/include/string.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/string_fortified.h" 1 3 4
+# 30 "/usr/include/x86_64-linux-gnu/bits/string_fortified.h" 3 4
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
+__attribute__ ((__leaf__)) memcpy (void *__restrict __dest, const void *__restrict __src, size_t __len) throw ()
+
+{
+  return __builtin___memcpy_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+}
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
+__attribute__ ((__leaf__)) memmove (void *__dest, const void *__src, size_t __len) throw ()
+{
+  return __builtin___memmove_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+}
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
+__attribute__ ((__leaf__)) mempcpy (void *__restrict __dest, const void *__restrict __src, size_t __len) throw ()
+
+{
+  return __builtin___mempcpy_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+}
+# 58 "/usr/include/x86_64-linux-gnu/bits/string_fortified.h" 3 4
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
+__attribute__ ((__leaf__)) memset (void *__dest, int __ch, size_t __len) throw ()
+{
+# 71 "/usr/include/x86_64-linux-gnu/bits/string_fortified.h" 3 4
+  return __builtin___memset_chk (__dest, __ch, __len, __builtin_object_size (__dest, 0));
+}
+
+
+
+
+void __explicit_bzero_chk (void *__dest, size_t __len, size_t __destlen)
+  throw () __attribute__ ((__nonnull__ (1)));
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void
+__attribute__ ((__leaf__)) explicit_bzero (void *__dest, size_t __len) throw ()
+{
+  __explicit_bzero_chk (__dest, __len, __builtin_object_size (__dest, 0));
+}
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__leaf__)) strcpy (char *__restrict __dest, const char *__restrict __src) throw ()
+{
+  return __builtin___strcpy_chk (__dest, __src, __builtin_object_size (__dest, 2 > 1));
+}
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__leaf__)) stpcpy (char *__restrict __dest, const char *__restrict __src) throw ()
+{
+  return __builtin___stpcpy_chk (__dest, __src, __builtin_object_size (__dest, 2 > 1));
+}
+
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__leaf__)) strncpy (char *__restrict __dest, const char *__restrict __src, size_t __len) throw ()
+
+{
+  return __builtin___strncpy_chk (__dest, __src, __len, __builtin_object_size (__dest, 2 > 1));
+}
+
+
+extern char *__stpncpy_chk (char *__dest, const char *__src, size_t __n,
+       size_t __destlen) throw ();
+extern char *__stpncpy_alias (char *__dest, const char *__src, size_t __n) throw () __asm__ ("" "stpncpy")
+                                 ;
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__leaf__)) stpncpy (char *__dest, const char *__src, size_t __n) throw ()
+{
+  if (__builtin_object_size (__dest, 2 > 1) != (size_t) -1
+      && (!__builtin_constant_p (__n) || __n > __builtin_object_size (__dest, 2 > 1)))
+    return __stpncpy_chk (__dest, __src, __n, __builtin_object_size (__dest, 2 > 1));
+  return __stpncpy_alias (__dest, __src, __n);
+}
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__leaf__)) strcat (char *__restrict __dest, const char *__restrict __src) throw ()
+{
+  return __builtin___strcat_chk (__dest, __src, __builtin_object_size (__dest, 2 > 1));
+}
+
+
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
+__attribute__ ((__leaf__)) strncat (char *__restrict __dest, const char *__restrict __src, size_t __len) throw ()
+
+{
+  return __builtin___strncat_chk (__dest, __src, __len, __builtin_object_size (__dest, 2 > 1));
+}
+# 496 "/usr/include/string.h" 2 3 4
+
+
+
+}
+# 43 "/usr/include/c++/9/cstring" 2 3
+# 71 "/usr/include/c++/9/cstring" 3
+extern "C++"
+{
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+
+  using ::memchr;
+  using ::memcmp;
+  using ::memcpy;
+  using ::memmove;
+  using ::memset;
+  using ::strcat;
+  using ::strcmp;
+  using ::strcoll;
+  using ::strcpy;
+  using ::strcspn;
+  using ::strerror;
+  using ::strlen;
+  using ::strncat;
+  using ::strncmp;
+  using ::strncpy;
+  using ::strspn;
+  using ::strtok;
+  using ::strxfrm;
+  using ::strchr;
+  using ::strpbrk;
+  using ::strrchr;
+  using ::strstr;
+# 122 "/usr/include/c++/9/cstring" 3
+
+}
+}
+# 26 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/serialization/ByteSerialization.h" 2
+
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/container/WSlice.h" 1
+# 24 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/container/WSlice.h"
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/container/HasSize.h" 1
+# 24 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/container/HasSize.h"
+
+# 24 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/container/HasSize.h"
+namespace openpal
+{
+
+template <class SizeType>
+class HasSize
+{
+
+public:
+
+ HasSize(SizeType size_) : size(size_)
+ {}
+
+ SizeType Size() const
+ {
+  return size;
+ }
+
+ bool IsEmpty() const
+ {
+  return size == 0;
+ }
+
+ bool IsNotEmpty() const
+ {
+  return size != 0;
+ }
+
+protected:
+
+ SizeType size;
+
+};
+
+}
+# 25 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/container/WSlice.h" 2
+
+
+
+namespace openpal
+{
+
+class RSlice;
+
+
+
+
+
+class WSlice : public HasSize<uint32_t>
+{
+public:
+
+ static WSlice Empty();
+
+ void SetAllTo(uint8_t value);
+
+ WSlice();
+ WSlice(uint8_t* pBuffer, uint32_t size);
+
+ void Clear();
+
+ uint32_t Advance(uint32_t count);
+
+ WSlice Skip(uint32_t count) const;
+
+ RSlice ToRSlice() const;
+
+ operator uint8_t* ()
+ {
+  return pBuffer;
+ };
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+
+ uint8_t* pBuffer;
+};
+
+
+}
+# 28 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/serialization/ByteSerialization.h" 2
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/container/RSlice.h" 1
+# 28 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/container/RSlice.h"
+namespace openpal
+{
+
+class WSlice;
+
+
+
+
+
+class RSlice : public HasSize<uint32_t>
+{
+
+public:
+
+ static RSlice Empty();
+
+ RSlice();
+
+ RSlice(uint8_t const* pBuffer, uint32_t size);
+
+ void Clear();
+
+ RSlice CopyTo(WSlice&) const;
+
+ RSlice Take(uint32_t count) const;
+
+ RSlice Skip(uint32_t count) const;
+
+ bool Equals(const RSlice& rhs) const;
+
+ void Advance(uint32_t count);
+
+ operator uint8_t const* () const
+ {
+  return pBuffer;
+ };
+
+private:
+ uint8_t const* pBuffer;
+
+};
+
+}
+# 29 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/serialization/ByteSerialization.h" 2
+
+namespace openpal
+{
+
+class UInt8Simple
+{
+public:
+
+ inline static uint8_t Read(const uint8_t* pStart)
+ {
+  return (*pStart);
+ }
+
+ inline static uint8_t ReadBuffer(RSlice& buffer)
+ {
+  auto ret = Read(buffer);
+  buffer.Advance(SIZE);
+  return ret;
+ }
+
+ static void WriteBuffer(WSlice& buffer, uint8_t value)
+ {
+  Write(buffer, value);
+  buffer.Advance(SIZE);
+ }
+
+ inline static void Write(uint8_t* pStart, uint8_t value)
+ {
+  *(pStart) = value;
+ }
+
+ const static size_t SIZE = 1;
+ const static uint8_t Max;
+ const static uint8_t Min;
+
+ typedef uint8_t Type;
+};
+
+}
+# 22 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/openpal/serialization/ByteSerialization.cpp" 2
+
+# 1 "/usr/include/c++/9/cstring" 1 3
+# 39 "/usr/include/c++/9/cstring" 3
+       
+# 40 "/usr/include/c++/9/cstring" 3
+# 24 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/openpal/serialization/ByteSerialization.cpp" 2
+
+# 1 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/util/Limits.h" 1
+# 24 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/./cpp/libs/include/openpal/util/Limits.h"
+namespace openpal
+{
+
+template <class T>
+T MinValue();
+
+template <class T>
+T MaxValue();
+
+}
+# 26 "/home/mimic/spire/spire-src-1.3/OpenPLC_v2/dnp3/cpp/libs/src/openpal/serialization/ByteSerialization.cpp" 2
+
+namespace openpal
+{
+
+const uint8_t UInt8Simple::Max = openpal::MaxValue<uint8_t>();
+const uint8_t UInt8Simple::Min = openpal::MinValue<uint8_t>();
+
+}

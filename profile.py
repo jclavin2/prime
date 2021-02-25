@@ -22,7 +22,7 @@ counter = 0;
 ifaces = []
 
 # Nodes at Site One.
-for i in range(1,13,4): #replicas 1, 5, 9
+for i in range(1,7,1): #replicas 1, 5, 9
     node = request.RawPC("node" + str(counter))
     node.disk_image = disk_image
     # Assign to Site One.
@@ -30,55 +30,11 @@ for i in range(1,13,4): #replicas 1, 5, 9
     # Create iface and assign IP
     iface = node.addInterface("eth1")
     # Specify the IPv4 address
-    iface.addAddress(pg.IPv4Address("192.168.1." + str(counter + 1), "255.255.255.0"))
+    iface.addAddress(pg.IPv4Address("192.168.1." + str(counter), "255.255.255.0"))
     ifaces.append(iface)
     counter = counter + 1
     pass
  
- # Nodes at Site Two
-for i in range(2, 14, 4): #replicas 2, 6, 10
-    node = request.RawPC("node" + str(counter))
-    node.disk_image = disk_image
-    # Assign to Site Two
-    node.Site("Site2")
-    # Create iface and assign IP
-    iface = node.addInterface("eth1")
-    # Specify the IPv4 address
-    iface.addAddress(pg.IPv4Address("192.168.1." + str(counter + 1), "255.255.255.0"))
-    # And add to the lan.
-    ifaces.append(iface)
-    counter = counter + 1
-    pass
-
- # Nodes at Site Three
-for i in range(3, 15, 4): #replicas 3, 7, 11
-    node = request.RawPC("node" + str(counter))
-    node.disk_image = disk_image
-    # Assign to Site Two
-    node.Site("Site3")
-    # Create iface and assign IP
-    iface = node.addInterface("eth1")
-    # Specify the IPv4 address
-    iface.addAddress(pg.IPv4Address("192.168.1." + str(counter + 1), "255.255.255.0"))
-    # And add to the lan.
-    ifaces.append(iface)
-    counter = counter + 1
-    pass
-
- # Nodes at Site Four
-for i in range(4, 16, 4): #replicas 4, 8, 12
-    node = request.RawPC("node" + str(counter))
-    node.disk_image = disk_image
-    # Assign to Site Two
-    node.Site("Site4")
-    # Create iface and assign IP
-    iface = node.addInterface("eth1")
-    # Specify the IPv4 address
-    iface.addAddress(pg.IPv4Address("192.168.1." + str(counter + 1), "255.255.255.0"))
-    # And add to the lan.
-    ifaces.append(iface)
-    counter = counter + 1
-    pass
 
 
 # Now add the link to the rspec. 

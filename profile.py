@@ -22,7 +22,7 @@ counter = 0;
 ifaces = []
 
 # Nodes at Site One.
-for i in range(1,7,1): #replicas 1, 5, 9
+for i in range(1,9,1): #single site mode with just 6 replicas. The example configuration is in example_conf/conf_6_latency_tuned.
     node = request.RawPC("node" + str(counter))
     node.disk_image = disk_image
     # Assign to Site One.
@@ -37,8 +37,7 @@ for i in range(1,7,1): #replicas 1, 5, 9
  
 
 
-# Now add the link to the rspec. 
-lan = request.LAN("lan")
+# Now add the link to the rspec. lan = request.LAN("lan")
 
 # Must provide a bandwidth. BW is in Kbps
 lan.bandwidth = 100000

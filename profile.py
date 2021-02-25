@@ -34,10 +34,9 @@ for i in range(1,9,1): #single site mode with 6 replicas
     ifaces.append(iface)
     counter = counter + 1
     pass
- 
 
-
-# Now add the link to the rspec. lan = request.LAN("lan")
+# Now add the link to the rspec. 
+lan = request.LAN("lan")
 
 # Must provide a bandwidth. BW is in Kbps
 lan.bandwidth = 100000

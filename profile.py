@@ -16,7 +16,7 @@ request = pc.makeRequestRSpec()
 site_nodes = 3
 
 # Count for node name.
-counter = 0;
+counter = 1;
 
 # ifaces. 
 ifaces = []

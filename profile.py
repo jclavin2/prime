@@ -30,7 +30,7 @@ for i in range(1,9,1): #single site mode with 6 replicas
     # Create iface and assign IP
     iface = node.addInterface("eth1")
     # Specify the IPv4 address
-    iface.addAddress(pg.IPv4Address("192.168.1." + str(counter), "255.255.255.0"))
+    iface.addAddress(pg.IPv4Address("192.168.1.10" + str(counter), "255.255.255.0"))
     ifaces.append(iface)
     counter = counter + 1
     pass

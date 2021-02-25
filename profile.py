@@ -22,7 +22,7 @@ counter = 0;
 ifaces = []
 
 # Nodes at Site One.
-for i in range(1,9,1): #single site mode with just 6 replicas. The example configuration is in example_conf/conf_6_latency_tuned.
+for i in range(1,9,1): #single site mode with 6 replicas 
     node = request.RawPC("node" + str(counter))
     node.disk_image = disk_image
     # Assign to Site One.

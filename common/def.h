@@ -190,7 +190,7 @@
 #define PRINT_PROGRESS 1000
 
 /* OpenSSL defines */
-#define KEY_SIZE 	   1024
+#define KEY_SIZE 	   512
 #define DIGEST_SIZE        20
 #define SIGNATURE_SIZE     128
 

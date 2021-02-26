@@ -12,6 +12,6 @@ openssl dhparam -outform PEM -out keys/dhparam.pem 2048
 
 for i in {1..10}
 do
-  openssl genrsa -out keys/private$i.pem 1024
+  openssl genrsa -out keys/private$i.pem 512
   openssl rsa -in keys/private$i.pem -out keys/public$i.pem -outform PEM -pubout
 done

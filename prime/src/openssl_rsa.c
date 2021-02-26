@@ -211,7 +211,7 @@ void OPENSSL_RSA_Generate_Keys() {
     e = BN_new();
     BN_set_word(e, 3);
     for ( s = 1; s <= NUMBER_OF_SERVERS; s++ ) {
-      ret = RSA_generate_key_ex( rsa, 1024, e, NULL );
+      ret = RSA_generate_key_ex( rsa, 512, e, NULL );
       if (ret != 1)
         Alarm(EXIT, "OPENSSL_RSA_Generate_Keys: RSA_generate_key failed\n");
       /*RSA_print_fp( stdout, rsa, 4 );*/
@@ -221,7 +221,7 @@ void OPENSSL_RSA_Generate_Keys() {
 
     /* Generate Keys For Clients */
     for ( s = 1; s <= NUMBER_OF_CLIENTS; s++ ) {
-      ret = RSA_generate_key_ex( rsa, 1024, e, NULL );
+      ret = RSA_generate_key_ex( rsa, 512, e, NULL );
       if (ret != 1)
         Alarm(EXIT, "OPENSSL_RSA_Generate_Keys: RSA_generate_key failed\n");
       /*RSA_print_fp( stdout, rsa, 4 );*/

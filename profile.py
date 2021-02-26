@@ -8,7 +8,8 @@ pc = portal.Context()
 
 #disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS8-64-STD"; #centos 8.
 #disk_image = "urn:publicid:IDN+emulab.net+image+ByzantineGridSec:Prime6.node0" #centos 8 with prime
-disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime12.node1" #centos 8 with prime configured for 6 nodes, 1 PLC/RTU, 1 HMI
+#disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime12.node1" #centos 8 with prime configured for 6 nodes, 1 PLC/RTU, 1 HMI
+disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime14.node1" #centos 8 with prime configured for 6 nodes, 1 PLC/RTU, 1 HMI with 512 bit keys.
 
 
 

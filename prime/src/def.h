@@ -27,7 +27,7 @@
  *   Brian Coan           Design of the Prime algorithm
  *   Jeff Seibert         View Change protocol
  *      
- * Copyright (c) 2008-2020
+ * Copyright (c) 2008 - 2020
  * The Johns Hopkins University.
  * All rights reserved.
  * 
@@ -208,7 +208,7 @@
 //#define PRE_PREPARE_SEC  2
 //#define PRE_PREPARE_USEC 0
 #define PRE_PREPARE_SEC  0
-#define PRE_PREPARE_USEC 20000
+#define PRE_PREPARE_USEC 5000
 
 /* When sending PreOrder messages periodically, how often the timeout
  * fires (i.e, how often we check to see if we can send new

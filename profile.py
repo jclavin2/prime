@@ -39,14 +39,17 @@ for i in range(1,9,1): #single site mode with 6 replicas
     pass
 
 # Now add the link to the rspec. 
-lan = request.LAN("lan")
+#lan = request.LAN("lan")
 
 # Must provide a bandwidth. BW is in Kbps
-lan.bandwidth = 100000
+#lan.bandwidth = 100000
+
+link1 = request.L1Link("link1")
 
 # Add interfaces to lan
 for iface in ifaces:
-    lan.addInterface(iface)
+    link1.addInterface(iface)
+    #lan.addInterface(iface)
 
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)

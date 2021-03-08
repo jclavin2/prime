@@ -2,9 +2,14 @@
 import geni.portal as portal
 # Import the ProtoGENI library.
 import geni.rspec.pg as pg
+# Import the Emulab specific extensions.
+import geni.rspec.emulab as emulab
 
 # Create a portal context.
 pc = portal.Context()
+
+# Create a Request object to start building the RSpec.
+request = pc.makeRequestRSpec()
 
 #disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS8-64-STD"; #centos 8.
 #disk_image = "urn:publicid:IDN+emulab.net+image+ByzantineGridSec:Prime6.node0" #centos 8 with prime
@@ -12,9 +17,6 @@ pc = portal.Context()
 #disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime14.node1" #centos 8 with prime configured for 6 nodes, 1 PLC/RTU, 1 HMI with 512 bit keys.
 disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime15.node1" #cenots 8 with prime configured for 6 nodes tuned for LAN and with alerts. 
 
-
-# Create a Request object to start building the RSpec.
-request = pc.makeRequestRSpec()
 
 site_nodes = 3
 

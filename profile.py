@@ -15,7 +15,8 @@ request = pc.makeRequestRSpec()
 #disk_image = "urn:publicid:IDN+emulab.net+image+ByzantineGridSec:Prime6.node0" #centos 8 with prime
 #disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime12.node1" #centos 8 with prime configured for 6 nodes, 1 PLC/RTU, 1 HMI
 #disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime14.node1" #centos 8 with prime configured for 6 nodes, 1 PLC/RTU, 1 HMI with 512 bit keys.
-disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime15.node1" #cenots 8 with prime configured for 6 nodes tuned for LAN and with alerts. 
+#disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime15.node1" #centos 8 with prime configured for 6 nodes tuned for LAN and with alerts. 
+disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime18.node1" #centos 8 with prime configured for 6 nodes tuned for LAN and with alerts, PLC compiled, batch flags off.
 
 
 site_nodes = 3

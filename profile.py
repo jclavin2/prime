@@ -51,8 +51,8 @@ lan = request.LAN("lan")
 
 # Add interfaces to lan
 for iface in ifaces:
-    link1.addInterface(iface)
-    #lan.addInterface(iface)
+    #link1.addInterface(iface)
+    lan.addInterface(iface)
 
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)

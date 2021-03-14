@@ -69,13 +69,9 @@ int main(int argc, char** argv)
 {
   setlinebuf(stdout);
   Usage(argc, argv);
-/*  Alarm_set_types(NONE);
-  Alarm_enable_timestamp_high_res(NULL);
-*/
 
-  Alarm_set_types(PRINT|NETWORK|STATUS);
-  /*Alarm_set_types(PRINT|DEBUG|STATUS);*/
-  Alarm_set_priority(SPLOG_INFO);
+  Alarm_set_types(PRINT|DEBUG|STATUS);
+  Alarm_set_priority(SPLOG_DEBUG);
   Alarm_enable_timestamp_high_res(NULL);
 
   Alarm( PRINT, "/===========================================================================\\\n");

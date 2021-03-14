@@ -280,9 +280,10 @@ void PROCESS_Message(signed_message *mess)
   }
 
   UTIL_Stopwatch_Stop(&profile_sw);
-  if (UTIL_Stopwatch_Elapsed(&profile_sw) >= 0.002) {
-    Alarm(DEBUG, "PROF PROC: %s took %f s\n", 
+  /*if (UTIL_Stopwatch_Elapsed(&profile_sw) >= 0.002) {*/
+    Alarm(DEBUG, "GMLC PROF PROC: %s took %f s\n", 
             UTIL_Type_To_String(mess->type), UTIL_Stopwatch_Elapsed(&profile_sw));
     BENCH.profile_count[mess->type]++;
-  }
+  /*}*/
+
 }

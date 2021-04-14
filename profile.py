@@ -17,7 +17,8 @@ request = pc.makeRequestRSpec()
 #disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime14.node1" #centos 8 with prime configured for 6 nodes, 1 PLC/RTU, 1 HMI with 512 bit keys.
 #disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime15.node1" #centos 8 with prime configured for 6 nodes tuned for LAN and with alerts. 
 #disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime18.node1" #centos 8 with prime configured for 6 nodes tuned for LAN and with alerts, PLC compiled, batch flags off.
-disk_image = "urn:publicid:IDN+utah.cloudlab.us+image+byzantinegridsec-PG0:Prime21.node1b:0" #centos 8 with prime configured for 6 nodes tuned for LAN and with alerts, PLC compiled, batch flags off and phases output.
+#disk_image = "urn:publicid:IDN+utah.cloudlab.us+image+byzantinegridsec-PG0:Prime21.node1b:0" #centos 8 with prime configured for 6 nodes tuned for LAN and with alerts, PLC compiled, batch flags off and phases output.
+disk_image = "urn:publicid:IDN+utah.cloudlab.us+image+byzantinegridsec-PG0:Prime22.node1.Delayed" #same as above, but leader is malicious.
 
 
 

@@ -18,7 +18,7 @@ request = pc.makeRequestRSpec()
 #disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime15.node1" #centos 8 with prime configured for 6 nodes tuned for LAN and with alerts. 
 #disk_image = "urn:publicid:IDN+apt.emulab.net+image+byzantinegridsec-PG0:Prime18.node1" #centos 8 with prime configured for 6 nodes tuned for LAN and with alerts, PLC compiled, batch flags off.
 #disk_image = "urn:publicid:IDN+utah.cloudlab.us+image+byzantinegridsec-PG0:Prime21.node1b:0" #centos 8 with prime configured for 6 nodes tuned for LAN and with alerts, PLC compiled, batch flags off and phases output.
-disk_image = "urn:publicid:IDN+utah.cloudlab.us+image+byzantinegridsec-PG0:Prime21.node2b:0" #same as above, but leader is malicious, and output is verbose.
+disk_image = "urn:publicid:IDN+utah.cloudlab.us+image+byzantinegridsec-PG0:VerboseNode" #same as above, but leader is malicious, and output is verbose.
 disk_image_no_echo = "urn:publicid:IDN+utah.cloudlab.us+image+byzantinegridsec-PG0:Prime21.node2" #same as above, but leader is malicious and output is less verbose.
 
 

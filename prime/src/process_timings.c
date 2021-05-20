@@ -66,6 +66,28 @@ extern benchmark_struct   BENCH;
 FILE *sahiti_prime_fp;
 #define SAHITI 1
 
+
+/**
+ ******************************************************************************
+   * @brief tv0 and tv1 are subtracted, return the double type time difference
+******************************************************************************
+ */
+double timeval_diff(struct timeval * tv0, struct timeval * tv1)
+{
+    double time1, time2;
+    
+    time1 = tv0->tv_sec + (tv0->tv_usec / 1000000.0);
+    time2 = tv1->tv_sec + (tv1->tv_usec / 1000000.0);
+
+    time1 = time1 - time2;
+    if (time1 < 0)
+        time1 = -time1;
+    return time1;
+}
+
+
+
+
 /* Process a signed message */
 void PROCESS_Message(signed_message *mess) 
 {
@@ -75,14 +97,29 @@ void PROCESS_Message(signed_message *mess)
 
   //sahiti
   struct timeval sahiti_now,sahiti_update,sahiti_po_request,sahiti_po_ack,sahiti_matrix,sahiti_pp,sahiti_p,sahiti_commit,sahiti_po_aru;
-  int sahiti_diff = 0;
+
+  double sahiti_diff;
+  
   sahiti_prime_fp=fopen("/tmp/sahiti_prime_test.txt","w");
 
 
   switch (mess->type) {   
 
   case UPDATE:
-    
+    if(SAHITI){
+        //printf("======================================\n");
+        //printf("Prime: PO req received\n");
+        gettimeofday(&sahiti_now,NULL);
+        sahiti_update=sahiti_now;
+        sahiti_diff = timeval_diff(&sahiti_now,&sahiti_update);
+        //printf("Current time in usec=%lu\n",(sahiti_now.tv_sec*1000000)+(sahiti_now.tv_usec));
+        //printf("Current time in msec=%lu\n",(sahiti_now.tv_sec*1000)+(sahiti_now.tv_usec/1000));
+        //printf("po_req-update in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));
+        printf("GMLC update %f\n",sahiti_diff);
+
+        //printf("======================================\n");
+        }
+
 	  PRE_ORDER_Process_Update(mess);
     break;
 
@@ -94,11 +131,12 @@ void PROCESS_Message(signed_message *mess)
         	//printf("Prime: PO req received\n");
         	gettimeofday(&sahiti_now,NULL);
 		    sahiti_po_request=sahiti_now;
-		    sahiti_diff=diffTime(sahiti_now,sahiti_update);
+		    sahiti_diff = timeval_diff(&sahiti_po_request,&sahiti_update);
         	//printf("Current time in usec=%lu\n",(sahiti_now.tv_sec*1000000)+(sahiti_now.tv_usec));
         	//printf("Current time in msec=%lu\n",(sahiti_now.tv_sec*1000)+(sahiti_now.tv_usec/1000));
         	//printf("po_req-update in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));
-        	printf("GMLC update-to-po_req took msec=%d\n",sahiti_diff);
+        	//printf("GMLC update-to-po_req in usec=%u sec, %d usec\n",sahiti_diff.tv_sec,sahiti_diff.tv_usec);
+            printf("GMLC update-to-po_req %f\n",sahiti_diff);
         	//printf("======================================\n");
         	}
 
@@ -112,11 +150,12 @@ void PROCESS_Message(signed_message *mess)
         	//printf("Prime: po_ack received\n");
         	gettimeofday(&sahiti_now,NULL);
 		    sahiti_po_ack=sahiti_now;
-		    sahiti_diff=diffTime(sahiti_now,sahiti_po_request);
+            sahiti_diff = timeval_diff(&sahiti_po_ack,&sahiti_po_request);
         	//printf("Current time in usec=%lu\n",(sahiti_now.tv_sec*1000000)+(sahiti_now.tv_usec));
         	//printf("Current time in msec=%lu\n",(sahiti_now.tv_sec*1000)+(sahiti_now.tv_usec/1000));
-        	//printf("po_ack-po_req in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));        	
-            printf("GMLC po_req-to-po_ack took msec=%d\n",sahiti_diff);
+        	//printf("po_ack-po_req in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));
+        	//printf("GMLC po_req-to-po_ack in usec=%u sec, %d usec\n",sahiti_diff.tv_sec,sahiti_diff.tv_usec);
+            printf("GMLC po_req-to-po_ack %f\n",sahiti_diff);
         	//printf("======================================\n");
         	}
 
@@ -131,12 +170,12 @@ void PROCESS_Message(signed_message *mess)
         //	printf("Prime: po_aru received\n");
         	gettimeofday(&sahiti_now,NULL);
 		    sahiti_po_aru=sahiti_now;
-		    sahiti_diff=diffTime(sahiti_now,sahiti_po_ack);
+            sahiti_diff = timeval_diff( &sahiti_po_aru,&sahiti_po_ack);
         //	printf("Current time in usec=%lu\n",(sahiti_now.tv_sec*1000000)+(sahiti_now.tv_usec));
         //	printf("Current time in msec=%lu\n",(sahiti_now.tv_sec*1000)+(sahiti_now.tv_usec/1000));
         	//printf("po_aru-po_ack in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));
-        	
-            printf("GMLC po_ack-to-po_aru took msec=%d\n",sahiti_diff);
+        	//printf("GMLC po_ack-to-po_aru in usec=%u sec, %d usec\n",sahiti_diff.tv_sec,sahiti_diff.tv_usec);
+            printf("GMLC po_ack-to-po_aru %f\n",sahiti_diff);
         //	printf("======================================\n");
         	}
 
@@ -159,12 +198,12 @@ void PROCESS_Message(signed_message *mess)
         	//printf("Prime: Matrix received\n");
         	gettimeofday(&sahiti_now,NULL);
 		    sahiti_matrix=sahiti_now;
-		    sahiti_diff=diffTime(sahiti_now,sahiti_po_aru);
+		    sahiti_diff = timeval_diff(&sahiti_matrix,&sahiti_po_aru);
         	//printf("Current time in usec=%lu\n",(sahiti_now.tv_sec*1000000)+(sahiti_now.tv_usec));
         	//printf("Current time in msec=%lu\n",(sahiti_now.tv_sec*1000)+(sahiti_now.tv_usec/1000));
         	//printf("matrix-po_aru in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));
-        	//printf("GMLC po_aru-to-matrix in msec=%lu\n",(sahiti_diff.tv_sec*1000)+(sahiti_diff.tv_usec/1000));
-            printf("GMLC po_aru-to-matrix took msec=%d\n",sahiti_diff);
+        	//printf("GMLC po_aru-to-matrix in usec=%u sec, %d usec\n",sahiti_diff.tv_sec,sahiti_diff.tv_usec);
+            printf("GMLC po_aru-to-matrix %f\n",sahiti_diff);
         	//printf("======================================\n");
         	}
 
@@ -189,11 +228,12 @@ void PROCESS_Message(signed_message *mess)
         //	printf("Prime: Preprepare\n");
         	gettimeofday(&sahiti_now,NULL);
 		    sahiti_pp=sahiti_now;
-		    sahiti_diff=diffTime(sahiti_now,sahiti_matrix);
+		    sahiti_diff = timeval_diff(&sahiti_pp,&sahiti_matrix);
         	//printf("Current time in usec=%lu\n",(sahiti_now.tv_sec*1000000)+(sahiti_now.tv_usec));
         	//printf("Current time in msec=%lu\n",(sahiti_now.tv_sec*1000)+(sahiti_now.tv_usec/1000));
-        	//printf("pp-matrix in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));        	
-            printf("GMLC matrix-to-preprepare took msec=%d\n",sahiti_diff);
+        	//printf("pp-matrix in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));
+        	//printf("GMLC matrix-to-preprepare in usec=%u sec, %d usec\n",sahiti_diff.tv_sec,sahiti_diff.tv_usec);
+            printf("GMLC matrix-to-preprepare %f\n",sahiti_diff);
         	//printf("======================================\n");
 		}
 
@@ -207,11 +247,12 @@ void PROCESS_Message(signed_message *mess)
         //	printf("Prime: Preprepare\n");
         	gettimeofday(&sahiti_now,NULL);
 		    sahiti_p=sahiti_now;
-		    sahiti_diff=diffTime(sahiti_now,sahiti_pp);
+		    sahiti_diff = timeval_diff( &sahiti_p,&sahiti_pp);
         	//printf("Current time in usec=%lu\n",(sahiti_now.tv_sec*1000000)+(sahiti_now.tv_usec));
         	//printf("Current time in msec=%lu\n",(sahiti_now.tv_sec*1000)+(sahiti_now.tv_usec/1000));
-        	//printf("pp-matrix in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));        	
-            printf("GMLC preprepare-to-prepare took msec=%d\n",sahiti_diff);
+        	//printf("pp-matrix in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));
+        	//printf("GMLC preprepare-to-prepare in usec=%u sec, %d usec\n",sahiti_diff.tv_sec,sahiti_diff.tv_usec);
+            printf("GMLC preprepare-to-prepare %f\n",sahiti_diff);
         	//printf("======================================\n");
 		}
 
@@ -226,11 +267,12 @@ void PROCESS_Message(signed_message *mess)
         //	printf("Prime: Preprepare\n");
         	gettimeofday(&sahiti_now,NULL);
 		    sahiti_commit=sahiti_now;
-		    sahiti_diff=diffTime(sahiti_now,sahiti_p);
+		    sahiti_diff = timeval_diff(&sahiti_commit,&sahiti_p);
         	//printf("Current time in usec=%lu\n",(sahiti_now.tv_sec*1000000)+(sahiti_now.tv_usec));
         	//printf("Current time in msec=%lu\n",(sahiti_now.tv_sec*1000)+(sahiti_now.tv_usec/1000));
-        	//printf("pp-matrix in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));        	
-            printf("GMLC prepare-to-commit took msec=%d\n",sahiti_diff);
+        	//printf("pp-matrix in usec=%lu\n",(sahiti_diff.tv_sec*1000000)+(sahiti_diff.tv_usec));
+        	//printf("GMLC prepare-to-commit in usec=%u sec, %d usec\n",sahiti_diff.tv_sec,sahiti_diff.tv_usec);
+            printf("GMLC prepare-to-commit %f\n",sahiti_diff);
         	//printf("======================================\n");
 		}
 
